@@ -1,0 +1,15 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:RadioButtonBindingDemo" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Name="window" x:Class="RadioButtonBindingDemo.MainWindow"
+        Title="MainWindow" Height="350" Width="525">
+	<Window.Resources>
+		<local:ConverterRadioButtom x:Key="ConverterRadioButtomOne"/>
+	</Window.Resources>
+    <Grid>
+    	<RadioButton Content="RadioButton1"  Height="16" HorizontalAlignment="Left" Margin="98.666,150.667,0,0" x:Name="radioButton1" VerticalAlignment="Top" IsChecked="{Binding SelectedRadioButtom, ConverterParameter=RadioButtonOne, Converter={StaticResource ConverterRadioButtomOne}, ElementName=window}" d:LayoutOverrides="HorizontalAlignment" />
+        <RadioButton Content="RadioButton2" Height="16" Margin="193.62,150.667,227,0" x:Name="radioButton2" VerticalAlignment="Top" IsChecked="{Binding SelectedRadioButtom, ConverterParameter=RadioButtonTwo, Converter={StaticResource ConverterRadioButtomOne}, ElementName=window, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" d:LayoutOverrides="Width" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="162,80,0,0" x:Name="textBox1" VerticalAlignment="Top" Width="120" Text="{Binding SelectedRadioButtom, ElementName=window}" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="112,83,0,0" x:Name="textBlock1" Text="Output :" VerticalAlignment="Top" />
+    </Grid>
+</Window>
